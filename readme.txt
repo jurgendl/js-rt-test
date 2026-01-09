@@ -78,25 +78,25 @@ yarn run SCRIPT
 powershell -c "irm https://deno.land/install.ps1 | iex"
 
 start new project:
-
+deno init
 
 create from package:
-
+deno init -t PACKAGE
 
 install global package:
-
+deno install -g PACKAGE
 
 install project development package:
-
+deno add -D PACKAGE
 
 install project package:
-
+deno add PACKAGE
 
 uninstall project package:
-
+deno remove PACKAGE
 
 run package.json script:
-
+deno task SCRIPT
 
 run typescript:
 deno run --FLAGS TYPESCRIPT
@@ -106,25 +106,25 @@ deno run --FLAGS TYPESCRIPT
 powershell -c "irm bun.sh/install.ps1|iex"
 
 start new project:
-
+bun init
 
 create from package:
-
+bun create PACKAGE
 
 install global package:
-
+bun add --global PACKAGE
 
 install project development package:
-
+bun add -d PACKAGE
 
 install project package:
-
+bun add PACKAGE
 
 uninstall project package:
-
+bun remove PACKAGE
 
 run package.json script:
-
+bun run SCRIPT
 
 run typescript:
 bun run TYPESCRIPT
@@ -134,9 +134,12 @@ bun run TYPESCRIPT
 https://vite.dev/guide/
 
 create vite project:
+
 npm create vite@latest
 yarn create vite
+
 deno init --npm vite
+
 bun create vite
 
 ----------------------------------------------
