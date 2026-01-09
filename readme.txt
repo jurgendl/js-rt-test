@@ -47,6 +47,9 @@ npm uninstall PACKAGE
 run package.json script:
 npm run SCRIPT
 
+run typescript:
+node --experimental-strip-types TYPESCRIPT
+
 ----------------------------------------------
 
 start new project:
@@ -74,9 +77,57 @@ yarn run SCRIPT
 
 powershell -c "irm https://deno.land/install.ps1 | iex"
 
+start new project:
+
+
+create from package:
+
+
+install global package:
+
+
+install project development package:
+
+
+install project package:
+
+
+uninstall project package:
+
+
+run package.json script:
+
+
+run typescript:
+deno run --FLAGS TYPESCRIPT
+
 ----------------------------------------------
 
 powershell -c "irm bun.sh/install.ps1|iex"
+
+start new project:
+
+
+create from package:
+
+
+install global package:
+
+
+install project development package:
+
+
+install project package:
+
+
+uninstall project package:
+
+
+run package.json script:
+
+
+run typescript:
+bun run TYPESCRIPT
 
 ----------------------------------------------
 
