@@ -16,7 +16,8 @@ echo ==================================
 
 cd deno
 echo on
-deno run test-ts-sql.ts
+deno add jsr:@db/sqlite
+deno run --allow-net --allow-ffi --allow-write --allow-read --allow-env test-ts-sql.ts
 @echo off
 cd..
 pause
