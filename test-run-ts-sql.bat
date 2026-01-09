@@ -26,7 +26,7 @@ echo ==================================
 
 cd node
 echo on
-node --experimental-strip-types test-ts-sql.ts
+node --experimental-strip-types --no-warnings test-ts-sql.ts
 @echo off
 cd..
 pause

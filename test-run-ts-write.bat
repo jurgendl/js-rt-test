@@ -41,7 +41,7 @@ del output2.txt 2>nul
 del output3.txt 2>nul
 del output4.txt 2>nul
 echo on
-node --experimental-strip-types test-ts-write.ts
+node --experimental-strip-types --no-warnings test-ts-write.ts
 @echo off
 type output1.txt 2>nul
 type output2.txt 2>nul

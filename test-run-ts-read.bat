@@ -21,7 +21,7 @@ pause
 echo ==================================
 
 echo on
-node --experimental-strip-types test-ts-read.ts
+node --experimental-strip-types --no-warnings test-ts-read.ts
 @echo off
 pause
 
