@@ -6,7 +6,6 @@ setlocal EnableDelayedExpansion
 for /f %%A in ('echo prompt $E ^| cmd') do set "ESC=%%A"
 
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Create the TypeScript library %ESC%[0m
-
 rmdir /s /q "./my-ts-lib" >nul 2>&1
 mkdir my-ts-lib
 cd my-ts-lib
@@ -19,8 +18,23 @@ mkdir src
 cd src
 set texttowrite=export function greet(name: string): string { return `Hello, ${name}!`; }
 echo %texttowrite% > index.ts
-set texttowrite=README
+set texttowrite=export function greet(name: string): string { return `Hello, ${name}!`; }
+echo %texttowrite% > index.ts
+set texttowrite=# @local/my-ts-lib
 echo %texttowrite% > README.md
+echo: >> README.md
+set texttowrite=A small reusable TypeScript utility library.
+echo %texttowrite% >> README.md
+echo: >> README.md
+set texttowrite=## Installation
+echo %texttowrite% >> README.md
+echo: >> README.md
+set texttowrite=```bash
+echo %texttowrite% >> README.md
+set texttowrite=npm install @local/my-ts-lib
+echo %texttowrite% >> README.md
+set texttowrite=```
+echo %texttowrite% >> README.md
 cd ..
 
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Configure package.json for a library %ESC%[0m
@@ -45,19 +59,14 @@ yq -i ".scripts.prepublishOnly = \"npm run build\"" package.json
 call npm run build
 
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Set up a local npm registry (Verdaccio) %ESC%[0m
+:: Verdaccio Windows location: %USERPROFILE%\AppData\Roaming\verdaccio
+:: Verdaccio Windows config location: %USERPROFILE%\AppData\Roaming\verdaccio\config.yaml
+:: call npm unpublish @local/my-ts-lib@1.0.0 --registry http://localhost:4873
+:: call npm unpublish @local/my-ts-lib --force --registry http://localhost:4873
 set texttowrite=registry=http://localhost:4873
 echo %texttowrite% > .npmrc
 call npm install -g verdaccio
 start http://localhost:4873
 call verdaccio
-call npm adduser --registry http://localhost:4873
-
-@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Publish to the local registry %ESC%[0m
-call npm publish --registry http://localhost:4873
-::yarn publish
-::bun publish --registry http://localhost:4873
-
-@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Bump version %ESC%[0m
-call npm version patch
 
 @pause

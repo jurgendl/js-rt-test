@@ -6,7 +6,6 @@ setlocal EnableDelayedExpansion
 for /f %%A in ('echo prompt $E ^| cmd') do set "ESC=%%A"
 
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Create a test consumer project %ESC%[0m
-
 rmdir /s /q "./my-ts-app" >nul 2>&1
 mkdir my-ts-app
 cd my-ts-app
