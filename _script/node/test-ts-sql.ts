@@ -2,8 +2,8 @@
 
 import { DatabaseSync } from "node:sqlite";
 
-const db = new DatabaseSync(":memory:");
-const query = db.prepare("SELECT 'Hello world from node' AS message");
+const db = new DatabaseSync("mydb.sqlite"); // :memory:
+const query = db.prepare("select 'Hello world from node' as message");
 const result = query.get();
 console.log(result); // => { message: 'Hello world from node' }
 
