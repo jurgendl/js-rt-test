@@ -22,8 +22,19 @@ call npm install @local/my-ts-lib
 set texttowrite=import { greet } from "@local/my-ts-lib"; console.log(greet("John"));
 echo %texttowrite% > index.ts
 
-@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Run script using own library %ESC%[0m
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m set type=module %ESC%[0m
 yq -i ".type = \"module\"" package.json
+
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m .npmrc %ESC%[0m
+@type .npmrc
+
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m package.json %ESC%[0m
+@type package.json
+
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m index.ts %ESC%[0m
+@type index.ts
+
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Run script using own library %ESC%[0m
 call node --experimental-strip-types --no-warnings index.ts
 
 :: after updating library version
