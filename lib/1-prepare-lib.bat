@@ -19,6 +19,8 @@ mkdir src
 cd src
 set texttowrite=export function greet(name: string): string { return `Hello, ${name}!`; }
 echo %texttowrite% > index.ts
+set texttowrite=README
+echo %texttowrite% > README.md
 cd ..
 
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Configure package.json for a library %ESC%[0m
@@ -52,5 +54,10 @@ call npm adduser --registry http://localhost:4873
 
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Publish to the local registry %ESC%[0m
 call npm publish --registry http://localhost:4873
+::yarn publish
+::bun publish --registry http://localhost:4873
+
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Bump version %ESC%[0m
+call npm version patch
 
 @pause

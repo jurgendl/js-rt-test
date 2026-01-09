@@ -27,4 +27,7 @@ echo %texttowrite% > index.ts
 yq -i ".type = \"module\"" package.json
 call node --experimental-strip-types --no-warnings index.ts
 
+:: after updating library version
+:: npm update @local/my-ts-lib
+
 @pause
