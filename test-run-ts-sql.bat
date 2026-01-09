@@ -15,7 +15,7 @@ echo ==================================
 cd deno
 cd vite-project
 echo on
-deno run --allow-read test-ts-sql.ts
+deno run test-ts-sql.ts
 @echo off
 cd..
 cd..
