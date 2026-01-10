@@ -13,13 +13,8 @@ cd my-ts-app
 call npm init -y
 
 @echo:
-@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Set up a local npm registry (Verdaccio) %ESC%[0m
-set texttowrite=registry=http://localhost:4873
-echo %texttowrite% > .npmrc
-
-@echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Install own library %ESC%[0m
-call npm install @local/my-ts-lib
+call npm install @local/my-ts-lib --registry http://localhost:4873
 
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Use own library %ESC%[0m
@@ -30,10 +25,6 @@ echo %texttowrite% > "src/index.ts"
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Set type to module in package.json %ESC%[0m
 yq -i ".type = \"module\"" package.json
-
-@echo:
-@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Print .npmrc %ESC%[0m
-@type .npmrc
 
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Print package.json %ESC%[0m

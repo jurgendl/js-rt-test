@@ -11,10 +11,6 @@ cd my-ts-lib
 call npm adduser --registry http://localhost:4873
 
 @echo:
-@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Print .npmrc %ESC%[0m
-@type .npmrc
-
-@echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Print package.json %ESC%[0m
 @type package.json
 
@@ -39,7 +35,7 @@ if %ERRORLEVEL%==0 (
 
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Publish to the local registry %ESC%[0m
-call npm publish --force --registry http://localhost:4873
+call npm publish --registry http://localhost:4873
 ::
 :: yarn publish --registry http://localhost:4873
 ::
@@ -55,7 +51,6 @@ call npm version patch
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Open Verdaccio web app for this library %ESC%[0m
 start http://localhost:4873/-/web/detail/@local/my-ts-lib
-::http://localhost:4873/@local/my-ts-lib/-/my-ts-lib-1.0.1.tgz
 
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m It is safe to close this window %ESC%[0m
