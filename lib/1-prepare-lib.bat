@@ -42,22 +42,16 @@ cd ..
 
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Configure package.json for a library %ESC%[0m
-::  "name": "@local/my-ts-lib",
-::  "type": "module",
-::  "main": "dist/index.js",
-::  "types": "dist/index.d.ts",
-::  "files": ["dist"],
-::  "scripts": {
-::    "build": "tsc",
-::    "prepublishOnly": "npm run build"
-::  }
-yq -i ".name = \"@local/my-ts-lib\"" package.json
-yq -i ".type = \"module\"" package.json
-yq -i ".main = \"dist/index.js\"" package.json
-yq -i ".types = \"dist/index.d.ts\"" package.json
-yq -i ".files = [\"dist\"]" package.json
-yq -i ".scripts.build = \"tsc\"" package.json
-yq -i ".scripts.prepublishOnly = \"npm run build\"" package.json
+yq --inplace ".author.name = \" \"" package.json
+yq --inplace ".author.email = \"test@hotmail.com\"" package.json
+yq --inplace ".name = \"@local/my-ts-lib\"" package.json
+yq --inplace ".type = \"module\"" package.json
+yq --inplace ".main = \"dist/index.js\"" package.json
+yq --inplace ".types = \"dist/index.d.ts\"" package.json
+yq --inplace ".files = [\"dist\"]" package.json
+yq --inplace ".scripts.build = \"tsc\"" package.json
+yq --inplace ".scripts.prepublishOnly = \"npm run build\"" package.json
+yq --inplace "del(.scripts.test)" package.json
 
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Build the library %ESC%[0m
@@ -72,7 +66,8 @@ call npm run build
 set texttowrite=registry=http://localhost:4873
 echo %texttowrite% > .npmrc
 call npm install -g verdaccio
+cd ..
 
 @echo:
-@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Start Verdaccio (leave this windows running) %ESC%[0m
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Start Verdaccio (leave this window running) %ESC%[0m
 call verdaccio

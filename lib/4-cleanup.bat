@@ -16,7 +16,10 @@ cd my-ts-app
 ::    publish: $authenticated
 ::    unpublish: $authenticated
 :: call npm unpublish @local/my-ts-lib@1.0.0 --registry http://localhost:4873
-call npm unpublish @local/my-ts-lib --force --registry http://localhost:4873
+call npm view @local/my-ts-lib --registry http://localhost:4873 >nul 2>&1
+if %ERRORLEVEL%==0 (
+  call npm unpublish @local/my-ts-lib --force --registry http://localhost:4873
+)
 cd ..
 
 @echo:

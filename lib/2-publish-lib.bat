@@ -32,13 +32,21 @@ call npm adduser --registry http://localhost:4873
 
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Remove previous published package %ESC%[0m
-call npm unpublish @local/my-ts-lib --force --registry http://localhost:4873
+call npm view @local/my-ts-lib --registry http://localhost:4873 >nul 2>&1
+if %ERRORLEVEL%==0 (
+  call npm unpublish @local/my-ts-lib --force --registry http://localhost:4873
+)
 
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Publish to the local registry %ESC%[0m
 call npm publish --force --registry http://localhost:4873
-::call yarn publish --registry http://localhost:4873
-::call bun publish --registry http://localhost:4873
+::
+:: yarn publish --registry http://localhost:4873
+::
+:: bun publish --registry http://localhost:4873
+::
+:: check existence
+:: npm view @local/my-ts-lib --registry http://localhost:4873
 
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Bump version (because you normally can't overwrite packages) %ESC%[0m

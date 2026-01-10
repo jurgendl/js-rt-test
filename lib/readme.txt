@@ -1,6 +1,6 @@
-requires yq: https://github.com/mikefarah/yq
+requires yq (choco install yq): https://github.com/mikefarah/yq
 
-requires npm
+requires npm (see ../readme.txt)
 
 Verdaccio is used as a local npm package repository ( http://localhost:4873/ )
 
@@ -39,3 +39,4 @@ Verdaccio is used as a local npm package repository ( http://localhost:4873/ )
 
 4-cleanup.bat (Verdaccio need to be running)
 	Remove package from Verdaccio
+	Clean up folders
