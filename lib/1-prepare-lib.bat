@@ -40,8 +40,7 @@ echo %texttowrite% > "src/index.ts"
 
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Configure package.json for a library %ESC%[0m
-yq --inplace ".author.name = \"author name\"" package.json
-yq --inplace ".author.email = \"test@hotmail.com\"" package.json
+yq --inplace ".author = \"author name\"" package.json
 yq --inplace ".name = \"@local/my-ts-lib\"" package.json
 yq --inplace ".type = \"module\"" package.json
 yq --inplace ".main = \"dist/index.js\"" package.json
@@ -68,5 +67,5 @@ call npm install -g verdaccio
 cd ..
 
 @echo:
-@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Start Verdaccio (leave this window running) %ESC%[0m
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Starting Verdaccio (leave this window running) %ESC%[0m
 call verdaccio

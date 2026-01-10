@@ -11,7 +11,7 @@ Verdaccio is used as a local npm package repository ( http://localhost:4873/ )
 	Configure package.json for a library
 	Build the library
 	Set up a local npm registry (Verdaccio)
-	Start Verdaccio (leave this windows running)
+	Starting Verdaccio (leave this windows running)
 
 2-publish-lib.bat
 	Set up user in Verdaccio (use test user/pass/mail)
