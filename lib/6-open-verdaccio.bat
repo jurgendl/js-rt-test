@@ -1,1 +1,1 @@
-call verdaccio
+start http://localhost:4873

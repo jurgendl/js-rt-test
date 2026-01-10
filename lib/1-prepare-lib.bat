@@ -49,6 +49,10 @@ yq --inplace ".types = \"dist/index.d.ts\"" package.json
 yq --inplace ".files = [\"dist\"]" package.json
 yq --inplace ".scripts.build = \"tsc\"" package.json
 yq --inplace ".scripts.prepublishOnly = \"npm run build\"" package.json
+set "packjsonscript=npm view @local/my-ts-lib --registry http://localhost:4873 ^>NUL 2^>NUL ^&^& npm unpublish @local/my-ts-lib --force --registry http://localhost:4873"
+yq --inplace ".scripts.cleanLocalRegistry = \"%packjsonscript%\"" package.json
+yq --inplace ".scripts.upVersion = \"npm version patch\"" package.json
+yq --inplace ".scripts.publishToLocalRegistry = \"npm publish --registry http://localhost:4873\"" package.json
 yq --inplace "del(.scripts.test)" package.json
 
 @echo:
