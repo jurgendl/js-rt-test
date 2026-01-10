@@ -5,6 +5,7 @@ setlocal EnableDelayedExpansion
 ::You then use %ESC% to emit ANSI sequences
 for /f %%A in ('echo prompt $E ^| cmd') do set "ESC=%%A"
 
+@echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Create the TypeScript library %ESC%[0m
 rmdir /s /q "./my-ts-lib" >nul 2>&1
 mkdir my-ts-lib
@@ -13,7 +14,8 @@ call npm init -y
 call npm install --save-dev typescript
 call npx tsc --init --rootDir src --outDir dist --declaration --module ESNext --target ES2019
 
-@echo %ESC%[38;2;0;0;0;48;2;255;180;0m README.md %ESC%[0m
+@echo:
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Create README.md %ESC%[0m
 set texttowrite=# @local/my-ts-lib
 echo %texttowrite% > README.md
 echo: >> README.md
@@ -30,6 +32,7 @@ echo %texttowrite% >> README.md
 set texttowrite=```
 echo %texttowrite% >> README.md
 
+@echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Write a reusable function %ESC%[0m
 mkdir src
 cd src
@@ -37,6 +40,7 @@ set texttowrite=export function greet(name: string): string { return `Hello, ${n
 echo %texttowrite% > index.ts
 cd ..
 
+@echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Configure package.json for a library %ESC%[0m
 ::  "name": "@local/my-ts-lib",
 ::  "type": "module",
@@ -55,9 +59,11 @@ yq -i ".files = [\"dist\"]" package.json
 yq -i ".scripts.build = \"tsc\"" package.json
 yq -i ".scripts.prepublishOnly = \"npm run build\"" package.json
 
+@echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Build the library %ESC%[0m
 call npm run build
 
+@echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Set up a local npm registry (Verdaccio) %ESC%[0m
 :: Verdaccio Windows location: %USERPROFILE%\AppData\Roaming\verdaccio
 :: Verdaccio Windows config location: %USERPROFILE%\AppData\Roaming\verdaccio\config.yaml
@@ -66,7 +72,7 @@ call npm run build
 set texttowrite=registry=http://localhost:4873
 echo %texttowrite% > .npmrc
 call npm install -g verdaccio
-start http://localhost:4873
-call verdaccio
 
-@pause
+@echo:
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Start Verdaccio (leave this windows running) %ESC%[0m
+call verdaccio
