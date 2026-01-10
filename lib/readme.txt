@@ -30,11 +30,11 @@ Verdaccio is used as a local npm package repository ( http://localhost:4873/ )
 	Set up a local npm registry (Verdaccio)
 	Install own library
 	Use own library
-	set type=module
+	Set type to module in package.json
 	Print all files
 		.npmrc
 		package.json
-		index.ts
+		src/index.ts
 	Run script using own library
 
 4-cleanup.bat (Verdaccio need to be running)

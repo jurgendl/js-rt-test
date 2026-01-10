@@ -23,10 +23,11 @@ if %ERRORLEVEL%==0 (
 cd ..
 
 @echo:
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m You can close Verdaccio now %ESC%[0m
+@pause
+
+@echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Clean up folders %ESC%[0m
 rmdir /s /q "./my-ts-app" >nul 2>&1
 rmdir /s /q "./my-ts-lib" >nul 2>&1
-
-@echo:
-@echo %ESC%[38;2;0;0;0;48;2;255;180;0m You can close Verdaccio now %ESC%[0m
 @pause

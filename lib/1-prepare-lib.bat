@@ -35,18 +35,17 @@ echo %texttowrite% >> README.md
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Write a reusable function %ESC%[0m
 mkdir src
-cd src
 set texttowrite=export function greet(name: string): string { return `Hello, ${name}!`; }
-echo %texttowrite% > index.ts
-cd ..
+echo %texttowrite% > "src/index.ts"
 
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Configure package.json for a library %ESC%[0m
-yq --inplace ".author.name = \" \"" package.json
+yq --inplace ".author.name = \"author name\"" package.json
 yq --inplace ".author.email = \"test@hotmail.com\"" package.json
 yq --inplace ".name = \"@local/my-ts-lib\"" package.json
 yq --inplace ".type = \"module\"" package.json
 yq --inplace ".main = \"dist/index.js\"" package.json
+yq --inplace ".keywords = [\"keyword\"]" package.json
 yq --inplace ".types = \"dist/index.d.ts\"" package.json
 yq --inplace ".files = [\"dist\"]" package.json
 yq --inplace ".scripts.build = \"tsc\"" package.json
