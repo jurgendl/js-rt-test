@@ -25,7 +25,7 @@ npm install @local/my-ts-lib
 ## Usage
 
 ```typescript 
-import { greet } from "@local/my-ts-lib";
+import { greet, goodbye } from "@local/my-ts-lib";
 
 console.log(greet("John")); // Hello, John!
 ``` 

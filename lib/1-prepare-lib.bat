@@ -18,6 +18,7 @@ copy ..\template_README.md_template README.md
 copy ..\template_typedoc.json_template typedoc.json
 mkdir src
 copy ..\template_index.ts_template src\index.ts
+copy ..\template_lib-extra.ts_template src\lib-extra.ts
 mkdir scripts
 copy ..\template_sync-readme.mjs_template scripts\sync-readme.mjs
 
