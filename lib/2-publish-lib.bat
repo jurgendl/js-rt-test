@@ -6,9 +6,11 @@ setlocal EnableDelayedExpansion
 for /f %%A in ('echo prompt $E ^| cmd') do set "ESC=%%A"
 
 @echo:
-@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Set up user in Verdaccio (use test user/pass/mail) %ESC%[0m
+@echo(%ESC%[38;2;0;0;0;48;2;255;180;0m Set up user in Verdaccio (use test user/mail, use strong pass like %ESC%[38;2;0;0;0;48;2;0;180;255m MyStr0ngPass123$ %ESC%[0m
 cd my-ts-lib
 call npm adduser --registry http://localhost:4873
+::npm login --registry http://localhost:4873
+pause
 
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Remove previous published package %ESC%[0m
@@ -20,16 +22,13 @@ if %ERRORLEVEL%==0 (
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Publish to the local registry %ESC%[0m
 call npm publish --registry http://localhost:4873
-::
-:: yarn publish --registry http://localhost:4873
-::
-:: bun publish --registry http://localhost:4873
-::
-:: check existence
-:: npm view @local/my-ts-lib --registry http://localhost:4873
 
 @echo:
-@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Bump version (because you normally can't overwrite packages) %ESC%[0m
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Check package in local registry %ESC%[0m
+call npm view @local/my-ts-lib --registry http://localhost:4873
+
+@echo:
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Bump version to prepare for next release (you can't overwrite packages) %ESC%[0m
 call npm version patch
 
 @echo:

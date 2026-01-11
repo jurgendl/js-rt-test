@@ -6,7 +6,7 @@ setlocal EnableDelayedExpansion
 for /f %%A in ('echo prompt $E ^| cmd') do set "ESC=%%A"
 
 @echo:
-@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Create a test consumer project %ESC%[0m
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Create the TypeScript library consumer %ESC%[0m
 rmdir /s /q "./my-ts-app" >nul 2>&1
 mkdir my-ts-app
 cd my-ts-app

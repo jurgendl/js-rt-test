@@ -81,13 +81,16 @@ call npm run readmeSync
 
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Set up a local npm registry (Verdaccio) %ESC%[0m
-:: Verdaccio Windows location: %USERPROFILE%\AppData\Roaming\verdaccio
-:: Verdaccio Windows config location: %USERPROFILE%\AppData\Roaming\verdaccio\config.yaml
 :: call npm unpublish @local/my-ts-lib@1.0.0 --registry http://localhost:4873
 :: call npm unpublish @local/my-ts-lib --force --registry http://localhost:4873
 call npm install -g verdaccio
 cd ..
 
 @echo:
-@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Starting Verdaccio (leave this window running) %ESC%[0m
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Verdaccio locations %ESC%[0m
+@echo Verdaccio Windows location: %USERPROFILE%\AppData\Roaming\verdaccio
+@echo Verdaccio Windows config location: %USERPROFILE%\AppData\Roaming\verdaccio\config.yaml
+
+@echo:
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Starting Verdaccio (wait till it shows an url, leave this window open) %ESC%[0m
 call verdaccio
