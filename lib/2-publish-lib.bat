@@ -8,6 +8,8 @@ for /f %%A in ('echo prompt $E ^| cmd') do set "ESC=%%A"
 @echo:
 @echo(%ESC%[38;2;0;0;0;48;2;255;180;0m Set up user in Verdaccio (use test user/mail, use strong pass like %ESC%[38;2;0;0;0;48;2;0;180;255m MyStr0ngPass123$ %ESC%[0m
 cd my-ts-lib
+::npm config --location=project set registry http://localhost:4873
+::npmrc
 call npm adduser --registry http://localhost:4873
 ::npm login --registry http://localhost:4873
 pause
