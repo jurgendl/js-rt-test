@@ -41,8 +41,41 @@ yq --inplace ".scripts.docs = \"typedoc --out docs\"" package.json
 yq --inplace ".scripts.readmeSync = \"node scripts/sync-readme.mjs\"" package.json
 yq --inplace "del(.scripts.test)" package.json
 
+::@echo:
+::@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Configure tsconfig.json for a library %ESC%[0m
+::call npm install --save-dev jsonc-parser
+::node -e "const fs=require('fs');console.log(JSON.stringify(require('jsonc-parser').parse(fs.readFileSync('tsconfig.json','utf8')),null,2))" > tsconfig-clean.json
+::del tsconfig.json
+::ren tsconfig-clean.json tsconfig.json
+::yq --inplace ".compilerOptions.moduleResolution = \"NodeNext\"" tsconfig.json
+::yq --inplace ".compilerOptions.module = \"NodeNext\"" tsconfig.json
+
 @echo:
-@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Build the library %ESC%[0m
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Print package.json %ESC%[0m
+@type package.json
+
+@echo:
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Print tsconfig.json %ESC%[0m
+@type tsconfig.json
+
+@echo:
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Print typedoc.json %ESC%[0m
+@type typedoc.json
+
+@echo:
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Print README.md %ESC%[0m
+@type README.md
+
+@echo:
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Print src/index.ts %ESC%[0m
+@type src\index.ts
+
+@echo:
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Print src/lib-extra.ts %ESC%[0m
+@type src\lib-extra.ts
+
+@echo:
+@echo %ESC%[38;2;0;0;0;48;2;255;180;0m Build the library and docs %ESC%[0m
 call npm run build
 call npm run readmeSync
 
