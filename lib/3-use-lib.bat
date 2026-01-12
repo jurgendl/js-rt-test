@@ -14,9 +14,9 @@ call npm init -y
 
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Install own library %ESC%[0m
-::npm config --location=project set registry http://localhost:4873
-::npmrc
-call npm install @local/my-ts-lib --registry http://localhost:4873
+call npm config --location=project set @local:registry http://localhost:4873
+call npm install @local/my-ts-lib
+::call npm install @local/my-ts-lib --registry http://localhost:4873
 
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Use own library %ESC%[0m
