@@ -26,6 +26,9 @@ nvm uninstall VERSION
 
 ----------------------------------------------
 
+update
+see nvm
+
 start new project:
 npm init
 
@@ -52,6 +55,9 @@ node --experimental-strip-types TYPESCRIPT
 
 ----------------------------------------------
 
+update
+todo
+
 start new project:
 yarn
 
@@ -76,6 +82,9 @@ yarn run SCRIPT
 ----------------------------------------------
 
 powershell -c "irm https://deno.land/install.ps1 | iex"
+
+update
+deno upgrade
 
 start new project:
 deno init
@@ -104,6 +113,9 @@ deno run --FLAGS TYPESCRIPT
 ----------------------------------------------
 
 powershell -c "irm bun.sh/install.ps1|iex"
+
+update
+todo
 
 start new project:
 bun init
