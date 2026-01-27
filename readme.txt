@@ -4,10 +4,19 @@ runtime: https://docs.deno.com/runtime/getting_started/installation/
 runtime: https://bun.com/docs/installation
 package manager: https://www.npmjs.com/
 package manager: https://yarnpkg.com/	, https://yarnpkg.com/getting-started/install
+vite: https://vite.dev/guide/
 
 ----------------------------------------------
 
-install nvm-setup.exe from https://github.com/coreybutler/nvm-windows/releases
+see subdirectory "lib" for creation and using a typescript library (uses local package manager Verdaccio)
+
+----------------------------------------------
+
+install/update:
+nvm-setup.exe found here:  https://github.com/coreybutler/nvm-windows/releases
+
+version:
+nvm --version
 
 available versions:
 nvm list available
@@ -18,7 +27,7 @@ nvm list
 install version:
 nvm install VERSION
 
-activate version glabally:
+activate version globally:
 nvm use VERSION
 
 uninstall version:
@@ -26,8 +35,15 @@ nvm uninstall VERSION
 
 ----------------------------------------------
 
-update
+install:
 see nvm
+
+update:
+see nvm
+
+version:
+node --version
+npm -version
 
 start new project:
 npm init
@@ -53,10 +69,21 @@ npm run SCRIPT
 run typescript:
 node --experimental-strip-types TYPESCRIPT
 
+vite:
+npm create vite@latest
+
 ----------------------------------------------
 
-update
-todo
+install:
+npm install --global yarn
+?
+
+update:
+npm install --global yarn
+curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+
+version:
+yarn --version
 
 start new project:
 yarn
@@ -79,12 +106,19 @@ yarn remove PACKAGE
 run package.json script:
 yarn run SCRIPT
 
+vite:
+yarn create vite
+
 ----------------------------------------------
 
+install:
 powershell -c "irm https://deno.land/install.ps1 | iex"
 
-update
+update:
 deno upgrade
+
+version:
+deno --version
 
 start new project:
 deno init
@@ -110,12 +144,19 @@ deno task SCRIPT
 run typescript:
 deno run --FLAGS TYPESCRIPT
 
+vite:
+deno init --npm vite
+
 ----------------------------------------------
 
+install:
 powershell -c "irm bun.sh/install.ps1|iex"
 
-update
-todo
+update:
+bun upgrade
+
+version:
+bun --version
 
 start new project:
 bun init
@@ -141,17 +182,7 @@ bun run SCRIPT
 run typescript:
 bun run TYPESCRIPT
 
-----------------------------------------------
-
-https://vite.dev/guide/
-
-create vite project:
-
-npm create vite@latest
-yarn create vite
-
-deno init --npm vite
-
+vite:
 bun create vite
 
 ----------------------------------------------
