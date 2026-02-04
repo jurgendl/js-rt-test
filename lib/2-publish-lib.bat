@@ -18,6 +18,8 @@ pause
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Remove previous published package %ESC%[0m
 call npm view @local/my-ts-lib --registry http://localhost:4873 >nul 2>&1
 if %ERRORLEVEL%==0 (
+::call npm unpublish @local/my-ts-lib@1.0.0 --registry http://localhost:4873
+::call npm unpublish @local/my-ts-lib --force --registry http://localhost:4873
   call npm unpublish @local/my-ts-lib --force --registry http://localhost:4873
 )
 
