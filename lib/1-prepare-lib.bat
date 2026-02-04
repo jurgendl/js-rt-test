@@ -14,13 +14,13 @@ call npm init -y
 call npm install --save-dev typescript
 call npx tsc --init --rootDir src --outDir dist --declaration --module ESNext --target ES2019
 call npm install --save-dev typedoc typedoc-plugin-markdown
-copy ..\template_README.md_template README.md
-copy ..\template_typedoc.json_template typedoc.json
+copy ..\template\README.md README.md
+copy ..\template\typedoc.json typedoc.json
 mkdir src
-copy ..\template_index.ts_template src\index.ts
-copy ..\template_lib-extra.ts_template src\lib-extra.ts
+copy ..\template\src\index.ts .\src\index.ts
+copy ..\template\src\lib-extra.ts .\src\lib-extra.ts
 mkdir scripts
-copy ..\template_sync-readme.mjs_template scripts\sync-readme.mjs
+copy ..\template\scripts\sync-readme.mjs .\scripts\sync-readme.mjs
 
 @echo:
 @echo %ESC%[38;2;0;0;0;48;2;255;180;0m Configure package.json for a library %ESC%[0m
