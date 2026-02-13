@@ -26,4 +26,5 @@ cd ..
 rmdir /s /q "./my-ts-lib" >nul 2>&1
 rmdir /s /q "./my-ts-app" >nul 2>&1
 rmdir /s /q "./my-ts-app-local-path" >nul 2>&1
+rmdir /s /q "./my-ts-app-local-tarball" >nul 2>&1
 @pause

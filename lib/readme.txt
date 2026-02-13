@@ -9,8 +9,9 @@ writes to the sub folder 'my-ts-lib' and 'my-ts-app'
 0-start-verdaccio.bat (prepares and starts Verdaccio - do not close window)
 1-prepare-lib.bat
 2-publish-lib.bat
-3a-use-lib.bat
-3b-use-lib-local-path.bat (use lib via local path)
+3a-use-lib.bat (use Verdaccio)
+3b-use-lib-local-path.bat (use local path source)
+3c-use-lib-local-tarball.bat (use tarball)
 4-cleanup.bat (Verdaccio need to be running)
 
 extra:
