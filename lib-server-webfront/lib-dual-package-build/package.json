@@ -2,19 +2,20 @@
 	"name": "lib-dual-package-build",
 	"version": "1.0.0",
 	"type": "module",
-	"main": "./dist/node/index.js",
-	"types": "./dist/node/index.d.ts",
 	"scripts": {
 		"build:node": "tsc -p tsconfig.node.json",
 		"build:browser": "tsc -p tsconfig.browser.json",
 		"build": "npm run build:node && npm run build:browser"
 	},
+	"main": "./dist/node/lib.js",
+	"types": "./dist/node/lib.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/node/index.d.ts",
+			"types": "./dist/node/lib.d.ts",
 			"import": {
-				"node": "./dist/node/index.js",
-				"default": "./dist/browser/index.js"
+				"node": "./dist/node/lib.js",
+				"browser": "./dist/browser/lib.js",
+				"default": "./dist/browser/lib.js"
 			}
 		}
 	},
