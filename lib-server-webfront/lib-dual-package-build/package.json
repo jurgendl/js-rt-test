@@ -12,11 +12,9 @@
 	"exports": {
 		".": {
 			"types": "./dist/node/lib.d.ts",
-			"import": {
-				"node": "./dist/node/lib.js",
-				"browser": "./dist/browser/lib.js",
-				"default": "./dist/browser/lib.js"
-			}
+			"node": "./dist/node/lib.js",
+			"browser": "./dist/browser/lib.js",
+			"default": "./dist/browser/lib.js"
 		}
 	},
 	"devDependencies": {
